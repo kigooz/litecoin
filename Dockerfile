@@ -20,7 +20,7 @@ RUN wget \
     --no-check-certificate \
     https://download.litecoin.org/litecoin-0.8.7.4/linux/litecoin-0.8.7.4-linux.tar.xz
 
-RUN tar zxvJ litecoin-0.8.7.4-linux.tar.xz
+RUN tar xvfJ litecoin-0.8.7.4-linux.tar.xz
 RUN mv litecoin-0.8.7.4-linux/bin/64/* /usr/bin
 RUN rm -rf litecoin-0.8.7.4-linux litecoin-0.8.7.4-linux.tar.xz
 
