@@ -1,12 +1,12 @@
-# bitcoin-testnet-box docker image
+# EarthDollar-testnet-box docker image
 
-FROM ubuntu:12.04
+FROM ubuntu:14.04
 MAINTAINER Mantas Radzevicius <mantas.radzevicius@gmail.com>
 
 # deal with installation warnings
 ENV TERM xterm
 
-# litecoin deps
+# EarthDollar deps
 RUN apt-get update && apt-get install -y \
     wget \
     make
@@ -14,7 +14,7 @@ RUN apt-get update && apt-get install -y \
 # create a non-root user
 RUN adduser --disabled-login --gecos "" tester
 
-# litecoin
+# EarthDollar
 WORKDIR /home/tester
 RUN wget \
     --no-check-certificate \
@@ -25,11 +25,11 @@ RUN mv litecoin-0.8.7.4-linux/bin/64/* /usr/bin
 RUN rm -rf litecoin-0.8.7.4-linux litecoin-0.8.7.4-linux.tar.xz
 
 # copy the testnet-box files into the image
-ADD . /home/tester/litecoin-testnet-box
+ADD . /home/tester/EarthDollar-testnet-box
 
 # make tester user own the litecoin-testnet-box
-RUN chown -R tester:tester /home/tester/litecoin-testnet-box
-WORKDIR /home/tester/litecoin-testnet-box
+RUN chown -R tester:tester /home/tester/EarthDollar-testnet-box
+WORKDIR /home/tester/EarthDollar-testnet-box
 
 # use the tester user when running the image
 USER tester
